@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #############################################################################
-# Filename    : DHT11.py
+# Filename    : Sensors.py
 # Description :	read the temperature and humidity data of DHT11
 # Author      : freenove
 # modification: 2018/08/03
@@ -8,6 +8,7 @@
 import RPi.GPIO as GPIO
 import time
 import Freenove_DHT as DHT
+import DataLogger as Logger
 DHTPin = 11     #define the pin of DHT11
 
 def loop():
@@ -27,6 +28,7 @@ def loop():
             print("Other error!")
             
         print("Humidity : %.2f, \t Temperature : %.2f \n"%(dht.humidity,dht.temperature))
+        Logger.datalogger(dht.humidity,dht.temperature)
         time.sleep(2)       
         
 if __name__ == '__main__':
