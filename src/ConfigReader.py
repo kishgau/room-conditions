@@ -3,11 +3,11 @@ import configparser
 from pathlib import Path
 
  
-def config(filename='database.ini', section='DEFAULT'):
-    cwd = Path(__file__).resolve().parents[1]
-    dbconfig = cwd / 'cfg' / filename
+def config_reader(filename='database.ini', section='DEFAULT'):
+    _cwd = Path(__file__).resolve().parents[1]
+    _dbconfig = _cwd / 'cfg' / filename
     parser = configparser.ConfigParser()
-    parser.read(dbconfig)
+    parser.read(_dbconfig)
     dbparams = {}
 
     if parser.has_section('postgresql'):
@@ -21,6 +21,6 @@ def config(filename='database.ini', section='DEFAULT'):
 
 
 if __name__ == '__main__':
-   config()
+   config_reader()
 
 
