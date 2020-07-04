@@ -3,7 +3,7 @@
 # Filename    : Data.py
 # Description :	Capture the temperature and humidity data of Sensors.py
 # Author      : freenove
-# modification: 2018/08/03
+# modification: 2018/08/03a
 ########################################################################
 import csv
 from pathlib import Path
@@ -13,7 +13,7 @@ temperature = 21.1
 
 def datalogger(humidity,temperature):
     cwd = Path(__file__).resolve().parents[1]
-    dataLogger = cwd / 'data' / 'sensor.out'
+    dataLogger = cwd / 'out' / 'sensor.out'
     print(dataLogger)
     with open( dataLogger, 'w+', newline='') as csvfile:
         dataWritter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
