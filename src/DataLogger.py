@@ -14,7 +14,6 @@ temperature = 21.1
 def datalogger(humidity,temperature):
     _cwd = Path(__file__).resolve().parents[1]
     _datalogger = _cwd / 'out' / 'sensor.out'
-    print(_datalogger)
     with open( _datalogger, 'w+', newline='') as csvfile:
         data_writter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         data_writter.writerow([humidity,temperature])
