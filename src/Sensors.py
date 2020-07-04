@@ -27,11 +27,14 @@ def loop():
             print("DHTLIB_ERROR_TIMEOUT!")
         else:               #other errors
             print("Other error!")
-            
-        print("Humidity : %.2f, \t Temperature : %.2f \n"%(dht.humidity,dht.temperature))
-        Logger.datalogger(dht.humidity,dht.temperature)
-        Db.add_data_point(1,dht.humidity,dht.temperature)
-        time.sleep(2)       
+
+        if ( dht.humidity <= 90 ):
+            print("Humidity : %.2f, \t Temperature : %.2f \n"%(dht.humidity,dht.temperature))
+            Logger.datalogger(dht.humidity,dht.temperature)
+            Db.add_data_point(1,dht.humidity,dht.temperature)
+            time.sleep(10)
+        else:
+            time.sleep(10)
         
 if __name__ == '__main__':
     print ('Program is starting ... ')

@@ -6,7 +6,7 @@ from datetime import datetime
 
 def add_data_point(roomid=0, humidity=0.0,temperature=0.0):
     _postgres_params = dbconfigreader.config_reader( 'database.ini', 'postgresql')
-    conn = psycopg2.connect(dbname=_postgres_params['database'],user=_postgres_params['user'], password=_postgres_params['password'])
+    conn = psycopg2.connect(dbname=_postgres_params['database'], dbname=_postgres_params['database'],user=_postgres_params['user'], password=_postgres_params['password'])
     curr = conn.cursor()
     date_now = datetime.now().strftime("%Y-%m-%d")
     time_now = datetime.now().strftime("%H:%M")
